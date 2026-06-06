@@ -8,9 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─────────────────────────────────────────
-       CSS VARIABLES & GLOBAL RESET
-    ───────────────────────────────────────── */
     :root {
       --rose:        #f472b6;
       --rose-deep:   #db2777;
@@ -50,9 +47,6 @@
       min-height: 100vh;
     }
 
-    /* ─────────────────────────────────────────
-       ANIMATED GRADIENT BACKGROUND
-    ───────────────────────────────────────── */
     #bg-canvas {
       position: fixed;
       inset: 0;
@@ -80,9 +74,6 @@
       66%      { transform: translate(-30px,40px) scale(0.95); }
     }
 
-    /* ─────────────────────────────────────────
-       FLOATING HEART PARTICLES (canvas)
-    ───────────────────────────────────────── */
     #heart-canvas {
       position: fixed;
       inset: 0;
@@ -90,9 +81,6 @@
       pointer-events: none;
     }
 
-    /* ─────────────────────────────────────────
-       SECTION WRAPPER
-    ───────────────────────────────────────── */
     .section {
       position: relative;
       z-index: 10;
@@ -111,9 +99,6 @@
     }
     .section.hidden { display: none; }
 
-    /* ─────────────────────────────────────────
-       GLASSMORPHISM CARD
-    ───────────────────────────────────────── */
     .glass {
       background: var(--glass-bg);
       border: 1px solid var(--glass-border);
@@ -128,9 +113,6 @@
 
     .glass-sm { border-radius: var(--radius-lg); }
 
-    /* ─────────────────────────────────────────
-       GLOWING BUTTON
-    ───────────────────────────────────────── */
     .btn-glow {
       display: inline-flex;
       align-items: center;
@@ -189,9 +171,6 @@
       box-shadow: 0 6px 32px rgba(244,114,182,0.4);
     }
 
-    /* ─────────────────────────────────────────
-       SECTION 1 – WELCOME
-    ───────────────────────────────────────── */
     #s1 .card {
       max-width: 580px;
       width: 100%;
@@ -257,9 +236,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─────────────────────────────────────────
-       SECTION 2 – PUZZLE
-    ───────────────────────────────────────── */
     #s2 { flex-direction: column; gap: 32px; }
 
     #s2 .puzzle-title {
@@ -281,7 +257,6 @@
       width: 100%;
     }
 
-    /* Progress bar */
     .progress-outer {
       width: 100%;
       max-width: 400px;
@@ -309,7 +284,6 @@
       font-weight: 600;
     }
 
-    /* Puzzle grid */
     #puzzle-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -354,12 +328,8 @@
       display: block;
     }
 
-    /* Slot highlighting on drag-over */
     .puzzle-piece.drag-over { outline: 2px solid var(--rose); outline-offset: -2px; }
 
-    /* ─────────────────────────────────────────
-       CELEBRATION OVERLAY
-    ───────────────────────────────────────── */
     #celebration {
       position: fixed;
       inset: 0;
@@ -379,9 +349,6 @@
       pointer-events: none;
     }
 
-    /* ─────────────────────────────────────────
-       SECTION 3 – LETTER
-    ───────────────────────────────────────── */
     #s3 { flex-direction: column; gap: 32px; }
 
     .letter-card {
@@ -555,9 +522,6 @@
       flex-wrap: wrap;
     }
 
-    /* ─────────────────────────────────────────
-       FINAL OVERLAY
-    ───────────────────────────────────────── */
     #final-overlay {
       position: fixed;
       inset: 0;
@@ -576,6 +540,18 @@
     #final-overlay.show { opacity: 1; pointer-events: all; }
 
     #final-confetti { position: absolute; inset: 0; pointer-events: none; }
+
+    .final-box {
+      background: rgba(13,0,21,0.6);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px 36px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px) saturate(1.4);
+      -webkit-backdrop-filter: blur(10px) saturate(1.4);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+      display: inline-block;
+      max-width: 92vw;
+    }
 
     .final-msg {
       font-family: var(--font-display);
@@ -599,9 +575,7 @@
       pointer-events: none;
     }
 
-    /* ─────────────────────────────────────────
-       SCROLL INDICATOR
-    ───────────────────────────────────────── */
+    
     .scroll-hint {
       position: absolute;
       bottom: 36px;
@@ -620,18 +594,13 @@
     .scroll-hint svg { width: 18px; opacity: 0.6; }
     @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-    /* ─────────────────────────────────────────
-       TRANSITION HELPER
-    ───────────────────────────────────────── */
+   
     .fade-in-up {
       opacity: 0;
       transform: translateY(30px);
       animation: fadeUp 0.9s var(--ease-smooth) forwards;
     }
 
-    /* ─────────────────────────────────────────
-       AUDIO BUTTON
-    ───────────────────────────────────────── */
     #audio-btn {
       position: fixed;
       top: 20px;
@@ -652,9 +621,7 @@
     }
     #audio-btn:hover { background: rgba(244,114,182,0.3); }
 
-    /* ─────────────────────────────────────────
-       RESPONSIVE
-    ───────────────────────────────────────── */
+   
     @media (max-width: 500px) {
       #s1 .card, .letter-card, #s5 .card { padding: 40px 28px; }
       .puzzle-wrap { padding: 24px 18px; }
@@ -664,7 +631,7 @@
 </head>
 <body>
 
-<!-- ───── BACKGROUND ORBS ───── -->
+
 <div id="bg-canvas" aria-hidden="true">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
@@ -673,17 +640,14 @@
   <div class="orb orb-5"></div>
 </div>
 
-<!-- ───── FLOATING HEARTS CANVAS ───── -->
+
 <canvas id="heart-canvas" aria-hidden="true"></canvas>
 
-<!-- ───── AUDIO TOGGLE ───── -->
 <button id="audio-btn" title="Toggle music" aria-label="Toggle music">♪</button>
-<!-- Replace with your audio file path: <audio id="bg-music" loop src="your-romantic-song.mp3"></audio> -->
+
 <audio id="bg-music" loop></audio>
 
-<!-- ════════════════════════════════════
-     SECTION 1 – WELCOME
-════════════════════════════════════ -->
+
 <section id="s1" class="section active">
   <div class="card glass">
     <div class="eyebrow">✦ A special message for you ✦</div>
@@ -700,9 +664,7 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     SECTION 2 – PUZZLE
-════════════════════════════════════ -->
+
 <section id="s2" class="section hidden">
   <h2 class="puzzle-title fade-in-up">Put Our Memories<br><em>Back Together</em> ❤️</h2>
 
@@ -713,14 +675,12 @@
       <div class="progress-fill" id="progress-fill" style="width:0%"></div>
     </div>
 
-    <!-- Puzzle Grid -->
+    
     <div id="puzzle-grid"></div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     SECTION 3 – LOVE LETTER
-════════════════════════════════════ -->
+
 <section id="s3" class="section hidden">
   <div class="letter-card glass">
     <div class="letter-eyebrow">✦ From my heart to yours ✦</div>
@@ -728,17 +688,12 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     SECTION 4 – GALLERY
-════════════════════════════════════ -->
+
 <section id="s4" class="section hidden">
   <h2 class="gallery-title fade-in-up">Our Favorite <em>Memories</em> ❤️</h2>
   <div class="gallery-grid" id="gallery-grid"></div>
 </section>
 
-<!-- ════════════════════════════════════
-     SECTION 5 – FINAL QUESTION
-════════════════════════════════════ -->
 <section id="s5" class="section hidden">
   <div class="card glass">
     <div class="eyebrow">✦ One last thing ✦</div>
@@ -752,39 +707,32 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     CELEBRATION OVERLAY (puzzle solved)
-════════════════════════════════════ -->
+
 <div id="celebration" role="status" aria-live="polite">
   <canvas id="confetti-canvas"></canvas>
 </div>
 
-<!-- ════════════════════════════════════
-     FINAL OVERLAY
-════════════════════════════════════ -->
+
 <div id="final-overlay">
   <canvas id="final-confetti" class="fireworks-canvas"></canvas>
   <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
-  <p class="final-msg">You Are My<br><em>Favorite Person</em> ❤️</p>
+  <div class="final-box">
+    <p class="final-msg" id="final-msg-text"></p>
+  </div>
 </div>
 
-<!-- ════════════════════════════════════
-     LIGHTBOX
-════════════════════════════════════ -->
+
 <div id="lightbox" role="dialog" aria-label="Image preview">
   <button id="lightbox-close" aria-label="Close">✕</button>
   <img id="lightbox-img" src="" alt="Memory photo" />
 </div>
 
 <script>
-/* ══════════════════════════════════════════════════════
-   CONFIGURATION – REPLACE THESE PATHS WITH YOUR OWN
-══════════════════════════════════════════════════════ */
 
-// ★ Puzzle image — replace with your own image path or URL
+
+
 const PUZZLE_IMAGE = "Neutral Black and White Simple Anniversary Photo Collage (Portrait).png";
 
-// ★ Gallery images — add or replace with your own paths (4–8 images)
 const GALLERY_IMAGES = [
   "IMG-20260314-WA0014.jpg",
   "20260501_125959.jpg",
@@ -793,12 +741,11 @@ const GALLERY_IMAGES = [
   
 ];
 
-// ★ Optional background music path — replace with your own audio file
-const MUSIC_SRC = ""; // e.g. "love-song.mp3"
 
-/* ══════════════════════════════════════════════════════
-   LOVE LETTER TEXT (edit freely)
-══════════════════════════════════════════════════════ */
+const MUSIC_SRC = ""; 
+
+
+
 const LETTER = `Hey Love ❤️
 
 Every piece of this puzzle came together just like us.
@@ -813,9 +760,7 @@ I love you more than words can ever explain.
 
 Forever yours ❤️`;
 
-/* ══════════════════════════════════════════════════════
-   SECTION NAVIGATION
-══════════════════════════════════════════════════════ */
+
 const sections = ['s1','s2','s3','s4','s5'];
 
 function showSection(id, delay = 0) {
@@ -839,9 +784,7 @@ function showSection(id, delay = 0) {
   }, delay);
 }
 
-/* ══════════════════════════════════════════════════════
-   FLOATING HEARTS ANIMATION (background canvas)
-══════════════════════════════════════════════════════ */
+
 (function initHeartCanvas() {
   const canvas = document.getElementById('heart-canvas');
   const ctx    = canvas.getContext('2d');
@@ -895,17 +838,13 @@ function showSection(id, delay = 0) {
   tick();
 })();
 
-/* ══════════════════════════════════════════════════════
-   BUTTON – START
-══════════════════════════════════════════════════════ */
+
 document.getElementById('btn-start').addEventListener('click', () => {
   showSection('s2', 0);
   initPuzzle();
 });
 
-/* ══════════════════════════════════════════════════════
-   PUZZLE LOGIC
-══════════════════════════════════════════════════════ */
+
 const GRID = 4; // 4×4 = 16 pieces
 let puzzleOrder = [];   // current order (index 0–15 of piece position)
 let correctCount = 0;
@@ -1096,12 +1035,13 @@ function onPuzzleComplete() {
   launchConfetti('confetti-canvas');
   startMusic();
 
-  // Transition to love letter after 2.5s
+  // Keep celebration visible a bit longer so the grid doesn't vanish too quickly.
+  // Transition to love letter after 8s (allows confetti + hearts to be noticed longer).
   setTimeout(() => {
     cel.classList.remove('show');
-    showSection('s3', 300);
-    setTimeout(startTypewriter, 800);
-  }, 2500);
+    showSection('s3', 1000);
+    setTimeout(startTypewriter, 2000);
+  }, 8000);
 }
 
 /* ══════════════════════════════════════════════════════
@@ -1184,6 +1124,42 @@ function triggerFinal() {
   launchConfetti('final-confetti');
   launchFireworks('fireworks-canvas');
   launchBigHearts();
+  startFinalTypewriter();
+}
+
+function startFinalTypewriter() {
+  const target = document.getElementById('final-msg-text');
+  const text = `you are my <em>fav</em> person ❤️`;
+  // Clear previous content and create cursor
+  target.innerHTML = '';
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor-blink';
+  target.appendChild(cursor);
+
+  let i = 0;
+  const plain = text.replace(/<[^>]+>/g, '');
+
+  function typeNext() {
+    // If next characters include HTML tags, insert them atomically
+    if (i >= text.length) {
+      cursor.remove();
+      return;
+    }
+    // If next is a tag, insert whole tag
+    if (text[i] === '<') {
+      const end = text.indexOf('>', i);
+      const tag = text.slice(i, end + 1);
+      target.insertAdjacentHTML('beforeend', tag);
+      i = end + 1;
+      setTimeout(typeNext, 80);
+      return;
+    }
+    // Otherwise insert single character
+    cursor.insertAdjacentText('beforebegin', text[i]);
+    i++;
+    setTimeout(typeNext, 50);
+  }
+  typeNext();
 }
 
 /* ══════════════════════════════════════════════════════
@@ -1227,15 +1203,13 @@ function launchConfetti(canvasId) {
       }
       ctx.fill();
     });
-    if (++frame < 240) requestAnimationFrame(draw);
+    if (++frame < 360) requestAnimationFrame(draw);
     else ctx.clearRect(0,0,canvas.width,canvas.height);
   }
   draw();
 }
 
-/* ══════════════════════════════════════════════════════
-   FIREWORKS ENGINE
-══════════════════════════════════════════════════════ */
+
 function launchFireworks(canvasId) {
   const canvas = document.getElementById(canvasId);
   const ctx    = canvas.getContext('2d');
@@ -1286,9 +1260,7 @@ function launchFireworks(canvasId) {
   animate();
 }
 
-/* ══════════════════════════════════════════════════════
-   BIG FLOATING HEARTS (final overlay)
-══════════════════════════════════════════════════════ */
+
 function launchBigHearts() {
   for (let i = 0; i < 20; i++) {
     setTimeout(() => {
@@ -1321,9 +1293,7 @@ styleTag.textContent = `
 `;
 document.head.appendChild(styleTag);
 
-/* ══════════════════════════════════════════════════════
-   AUDIO
-══════════════════════════════════════════════════════ */
+
 const audioEl = document.getElementById('bg-music');
 const audioBtn = document.getElementById('audio-btn');
 let audioStarted = false;
@@ -1345,9 +1315,7 @@ function startMusic() {
   }
 }
 
-/* ══════════════════════════════════════════════════════
-   UTILITY – FISHER-YATES SHUFFLE
-══════════════════════════════════════════════════════ */
+
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -1356,9 +1324,7 @@ function shuffle(arr) {
   return arr;
 }
 
-/* ══════════════════════════════════════════════════════
-   RESIZE HANDLING
-══════════════════════════════════════════════════════ */
+
 window.addEventListener('resize', () => {
   // Re-render puzzle if visible
   if (!document.getElementById('s2').classList.contains('hidden') && document.getElementById('puzzle-grid').children.length) {
